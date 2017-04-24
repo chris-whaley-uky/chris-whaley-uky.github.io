@@ -32,7 +32,7 @@ h1 {
 }
 h2 {
   font-family: Dosis, sans-serif;
-  color: #375671
+  color: #375671;
   width: 80%;
   margin: 0 auto;
   color: whitesmoke;
@@ -40,6 +40,38 @@ h2 {
 h3 {
   font-family: Dosis, sans-serif;
   color: #003d71
+}
+p {
+  font-size: .9em;
+  color: #375671;
+}
+ul {
+  list-style-type: none;
+  font-size: .9em;
+  color: #375671;
+  line-height: 1.6em;
+}
+a, a:visited {
+  color: #003d71;
+}
+.project {
+  width: 80%;
+  min-width: 800px;
+  height: 100%;
+  margin: 35px auto;
+}
+.project::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.project-image {
+  width: 388px;
+  height: 240px;
+  background: white;
+  float: left;
+  margin-right: 20px;
+  border: 2px solid #dddddd;
 }
 </style>
 </head>
@@ -49,9 +81,9 @@ h3 {
     <h1>MAP672: Programming for Web Mapping</h1>
     <h2>Web Cartography at the University of Kentucky</h2>
 </header>
-<section>
+<section class="project">
   <a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/ef9224f2-c6d5-11e6-8333-0ee66e2c9693/embed">
-    <img src="images/map671_final_project.png" alt="map of MN lakes by county" /></a>
+    <img src="images/map671_final_project.png" alt="map of MN lakes by county" class="project-image" /></a>
     <h3><a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/ef9224f2-c6d5-11e6-8333-0ee66e2c9693/embed">Lakes in the state of Minnesota</a></h3>
     <p>This map shows the percentage of area in each county in MN that is water</p>
     <p>This was done using data from the MN DNR and using CARTO to do the calculations</p>
@@ -60,9 +92,9 @@ h3 {
       <li>Data Source: <a target = '_blank'  href="http://www.dnr.state.mn.us/index.html">MN Department of Natural Resources</a></li>
     </ul>
   </section>
-<section>
+<section class="project">
   <a target = '_blank' href="#">
-    <img src="images/denver_ameneties_icon.png" alt="Denver Ameneties Map" /></a>
+    <img src="images/denver_ameneties_icon.png" alt="Denver Ameneties Map" class="project-image" /></a>
     <h3><a target = '_blank' href="#">Denver Ameneties Map</a></h3>
     <p>This map was built with custom JavaScript code drawing upon the Leaflet JavaScript Library to show food stores, fire stations, and after school activites in Denver</p>
     <ul>
@@ -70,9 +102,9 @@ h3 {
       <li>Data Source: <a target = '_blank'  href="https://www.denvergov.org/opendata/">Denver Open Data Catalogue</a></li>
     </ul>
   </section>
-<section>
+<section class="project">
   <a target = '_blank' href="#">
-    <img src="images/my_commute_icon.png" alt="My Commute to School" /></a>
+    <img src="images/my_commute_icon.png" alt="My Commute to School" class="project-image" /></a>
     <h3><a target = '_blank' href="#">My Commute to School</a></h3>
     <p>This map was built with custom JavaScript code drawing upon the Leaflet JavaScript Library to show my daily commute to school in Duluth, MN and a few stops on the way</p>
     <ul>
@@ -80,9 +112,9 @@ h3 {
       <li>Data Source: Created Myself</li>
     </ul>
   </section>
-<section>
+<section class="project">
   <a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/5970534a-ba5f-11e6-aad7-0e233c30368f/embed">
-    <img src="images/cancer_deaths_icon.png" alt="Cancer Deaths" /></a>
+    <img src="images/cancer_deaths_icon.png" alt="Cancer Deaths" class="project-image" /></a>
     <h3><a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/5970534a-ba5f-11e6-aad7-0e233c30368f/embed">Cancer Death Rates in the United States</a></h3>
     <p>Choropleth map of cancer death rates per 100,000 people in the USA from 2009-2016 mapped at county level.</p>
     <ul>
@@ -90,9 +122,9 @@ h3 {
       <li>Data Source: <a target = '_blank'  href="https://www.cancer.gov/">National Cancer Institute</a></li>
     </ul>
   </section>
-  <section>
+  <section class="project">
     <a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/1d10b6cc-c24f-11e6-821a-0e3ebc282e83/embed">
-      <img src="images/us_wildfires_icon.png" alt="US Wildfires" /></a>
+      <img src="images/us_wildfires_icon.png" alt="US Wildfires" class="project-image" /></a>
       <h3><a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/1d10b6cc-c24f-11e6-821a-0e3ebc282e83/embed">US Wildfire Occurence in the United States</a></h3>
       <p>This map shows data from the USDA of wildfire locations in the United States from 1992-2013</p>
       <ul>
