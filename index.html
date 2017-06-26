@@ -1,271 +1,137 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-
 <head>
-    <meta charset=utf-8 />
-    <title>Final Project Working Example</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<meta charset="utf-8">
+<title>MAP672 Portfolio Example</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<meta name=‘viewport’ content=‘initial-scale=1,maximum-scale=1,user-scalable=no’ />
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: whitesmoke;
-            font-family: Lato, sans-serif;
-            color: #0D0000;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
 
-        header {
-            padding: 6px 10%;
-        }
+<link href='http://fonts.googleapis.com/css?family=Imprima' rel='stylesheet' type='text/css'>
 
-        h1 {
-            position: absolute;
-            z-index: 650;
-            top: 10px;
-            left: 15px;
-            padding: 8px 15px;
-            margin: 0;
-            color: whitesmoke;
-            font-size: 1.5em;
-            background: rgba(25, 25, 25, 0.8);
-            border-radius: 5px;
-        }
+<style>
 
-        h2 {
-            display: inline-block;
-            color: #001323;
-        }
-
-        #map {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            bottom: 0;
-        }
-
-        footer {
-            padding: 6px 10%;
-            width: 80%;
-        }
-
-        p {
-            font-size: 1em;
-            color: #001323;
-        }
-
-        .legend {
-            padding: 6px 8px;
-            font-size: 1em;
-            background: rgba(75, 75, 75, 0.8);
-            color: whitesmoke;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            width: 160px;
-        }
-
-        .legend h3 {
-            font-size: 1.1em;
-            font-weight: bold;
-            line-height: 1em;
-            color: whitesmoke;
-            margin: 0;
-        }
-
-        .legend h3 span {
-            font-size: 1.3em;
-            margin: 0 20px 0 0;
-        }
-
-        .legend ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 12px 4px 0;
-        }
-
-        .legend li {
-            height: 22px;
-        }
-
-        .legend span {
-            width: 30px;
-            height: 20px;
-            float: left;
-            margin-right: 10px;
-        }
-
-        #ui-controls {
-            width: 176px;
-            padding: 8px 25px 8px 15px;
-            background: rgba(75, 75, 75, 0.8);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            color: whitesmoke;
-        }
-
-        #ui-controls .min {
-            float: left;
-        }
-
-        #ui-controls .max {
-            float: right;
-            margin-right: -15px;
-        }
-
-        .year-slider {
-            width: 100%;
-        }
-
-        label {
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-    </style>
+body {
+    background: #f5f5f5
+    font-family: Imprima, sans-serif;
+}
+header {
+  width: 100%;
+  min-width: 800px;
+  margin: 0 auto;
+  background: steelblue;
+  padding: 15px 0 20px;
+}
+h1 {
+  font-family: Dosis, sans-serif;
+  color: #375671;
+  width: 80%;
+  margin: 0 auto;
+  color: whitesmoke;
+}
+h2 {
+  font-family: Dosis, sans-serif;
+  color: #375671;
+  width: 80%;
+  margin: 0 auto;
+  color: whitesmoke;
+}
+h3 {
+  font-family: Dosis, sans-serif;
+  color: #003d71
+}
+p {
+  font-size: .9em;
+  color: #375671;
+}
+ul {
+  list-style-type: none;
+  font-size: .9em;
+  color: #375671;
+  line-height: 1.6em;
+}
+a, a:visited {
+  color: #003d71;
+}
+.project {
+  width: 80%;
+  min-width: 800px;
+  height: 100%;
+  margin: 35px auto;
+}
+.project::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.project-image {
+  width: 388px;
+  height: 240px;
+  background: white;
+  float: left;
+  margin-right: 20px;
+  border: 2px solid #dddddd;
+}
+</style>
 </head>
 
 <body>
-    <h1>2016 Presidental Election Results in Minnesota</h1>
-    <div id="map"></div>
-    <div id="ui-controls">
-        <label><span class="min"></span><span class="max">2015</span>
-            <input type="range" min = "2006", max= "2015",
-                   value = "2006", step= "1", class="year-slider">
-        </label>
-    </div>
+<header>
+    <h1>MAP672: Programming for Web Mapping</h1>
+    <h2>Web Cartography at the University of Kentucky</h2>
+</header>
+<section class="project">
+  <a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/ef9224f2-c6d5-11e6-8333-0ee66e2c9693/embed">
+    <img src="images/map671_final_project.png" alt="map of MN lakes by county" class="project-image" /></a>
+    <h3><a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/ef9224f2-c6d5-11e6-8333-0ee66e2c9693/embed">Lakes in the state of Minnesota</a></h3>
+    <p>This map shows the percentage of area in each county in MN that is water</p>
+    <p>This was done using data from the MN DNR and using CARTO to do the calculations</p>
+    <ul>
+      <li>See the map: <a target = '_blank'  href="https://nmp.carto.com/u/chris-whaleyuky/builder/ef9224f2-c6d5-11e6-8333-0ee66e2c9693/embed">Uninsured Ameircans in 2015 by US County</a></li>
+      <li>Data Source: <a target = '_blank'  href="http://www.dnr.state.mn.us/index.html">MN Department of Natural Resources</a></li>
+    </ul>
+  </section>
+<section class="project">
+  <a target = '_blank' href="#">
+    <img src="images/denver_ameneties_icon.png" alt="Denver Ameneties Map" class="project-image" /></a>
+    <h3><a target = '_blank' href="#">Denver Ameneties Map</a></h3>
+    <p>This map was built with custom JavaScript code drawing upon the Leaflet JavaScript Library to show food stores, fire stations, and after school activites in Denver</p>
+    <ul>
+      <li>See the map: <a target = '_blank'  href="#">Denver Ameneties Map</a></li>
+      <li>Data Source: <a target = '_blank'  href="https://www.denvergov.org/opendata/">Denver Open Data Catalogue</a></li>
+    </ul>
+  </section>
+<section class="project">
+  <a target = '_blank' href="#">
+    <img src="images/my_commute_icon.png" alt="My Commute to School" class="project-image" /></a>
+    <h3><a target = '_blank' href="#">My Commute to School</a></h3>
+    <p>This map was built with custom JavaScript code drawing upon the Leaflet JavaScript Library to show my daily commute to school in Duluth, MN and a few stops on the way</p>
+    <ul>
+      <li>See the map: <a target = '_blank'  href="#">My Commute to School</a></li>
+      <li>Data Source: Created Myself</li>
+    </ul>
+  </section>
+<section class="project">
+  <a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/5970534a-ba5f-11e6-aad7-0e233c30368f/embed">
+    <img src="images/cancer_deaths_icon.png" alt="Cancer Deaths" class="project-image" /></a>
+    <h3><a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/5970534a-ba5f-11e6-aad7-0e233c30368f/embed">Cancer Death Rates in the United States</a></h3>
+    <p>Choropleth map of cancer death rates per 100,000 people in the USA from 2009-2016 mapped at county level.</p>
+    <ul>
+      <li>See the map: <a target = '_blank'  href="https://nmp.carto.com/u/chris-whaleyuky/builder/5970534a-ba5f-11e6-aad7-0e233c30368f/embed">Cancer Death Rates in the United States</a></li>
+      <li>Data Source: <a target = '_blank'  href="https://www.cancer.gov/">National Cancer Institute</a></li>
+    </ul>
+  </section>
+  <section class="project">
+    <a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/1d10b6cc-c24f-11e6-821a-0e3ebc282e83/embed">
+      <img src="images/us_wildfires_icon.png" alt="US Wildfires" class="project-image" /></a>
+      <h3><a target = '_blank' href="https://nmp.carto.com/u/chris-whaleyuky/builder/1d10b6cc-c24f-11e6-821a-0e3ebc282e83/embed">US Wildfire Occurence in the United States</a></h3>
+      <p>This map shows data from the USDA of wildfire locations in the United States from 1992-2013</p>
+      <ul>
+        <li>See the map: <a target = '_blank'  href="https://nmp.carto.com/u/chris-whaleyuky/builder/1d10b6cc-c24f-11e6-821a-0e3ebc282e83/embed">US Wildfire Occurence in the United States</a></li>
+        <li>Data Source: <a target = '_blank'  href="https://www.fs.usda.gov/rds/archive/products/RDS-2013-0009.3/_metadata_RDS-2013-0009.3.html">Spatial wildfire occurrence data for the United States, 1992-2013</a></li>
+      </ul>
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.3/papaparse.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/simple-statistics@2.2.0/dist/simple-statistics.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.2.1/chroma.min.js"></script>
-    <!-- <script src="data/elec2016_3857.geojson"></script> -->
-    <script>
-
-        // map options
-        var options = {
-            center:[46.5, -95],
-            zoom: 6.7,
-            zoomSnap: .1
-        }
-
-        // create the Leaflet map
-        var map = L.map('map', options);
-
-        // var tiles = L.tileLayer('http://{s}.tile.stamen.com/toner-background/{z}/{x}/{y}.{ext}', {
-        //     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        //     subdomains: 'abcd',
-        //     ext: 'png'
-        // }).addTo(map);
-
-        // var rVotes = "PCT_USPRSR",
-        //     dVotes = "PCT_USPRSD";
-        //
-        //     console.log(rVotes);
-
-
-        // AJAX request for GeoJSON data
-        $.getJSON("data/elec2016.geojson", function(data) {
-          var dataLayer = L.geoJson(data, {
-                 style: function(feature) {
-                   return {
-                          color: '#dddddd',
-                          weight: 0.5,
-                          fillOpacity: 1,
-                          fillColor: '#1f78b4'
-                   };
-              }
-          }).addTo(map);
-
-
-          drawMap(dataLayer)
-
-        });
-
-        function drawMap(dataLayer) {
-
-            var breaks = getClassBreaks(dataLayer)
-
-            dataLayer.eachLayer(function(layer) {
-                 layer.setStyle({
-                        fillColor: getColor(layer.feature.properties.victory_margin, breaks)
-                 });
-                 console.log(layer.feature.properties);
-
-                 // build the tooltip
-                 var tooltip = '<b>' + ' Precinct Name:</b><br />' +
-                     layer.feature.properties.pctname; /* + '<br />' + '<b>' + ' Republican Vote:</b><br />' + layer.feature.properties.pct_usprsr
-                     + '%' */
-
-
-                 // bind the tooltip to the layer
-                 layer.bindTooltip(tooltip, {
-                     sticky: true
-                 });
-
-
-            });
-
-
-
-
-        }  //end drawMap
-
-        function getClassBreaks(dataLayer) {
-
-          var marginValues = [];
-
-          dataLayer.eachLayer(function(layer) {
-              var value = layer.feature.properties.victory_margin;
-              // console.log(layer.feature.properties.victory_margin);
-              marginValues.push(value)
-          });
-
-          var clusters = ss.ckmeans(marginValues, 2);
-
-          var breaks = clusters.map(function(cluster) {
-               return [cluster[0], cluster.pop()];
-          });
-
-          return breaks
-
-        } //end getClassBreaks
-
-
-          // var breaks = getClassBreaks(dataLayer);
-
-
-          function getColor(d, breaks) {
-
-            if(d < 0) {
-
-                return '#2b83ba';
-
-            } else if(d > 0) {
-
-                return '#d7191c';
-
-              }
-          }
-
-          function drawLegend(breaks) {
-
-
-          }
-
-
-
-
-
-
-
-
-
-
-    </script>
-
-</body>
-
+  </body>
 </html>
